@@ -14,7 +14,7 @@ class WeatherVM: BaseVM {
     @Published var weatherType: String? = nil
     @Published var currentCityTemp: Double? = nil
     @Published var currentDate: Int? = nil
-    @Published var weather: WeatherResponse? = nil
+    @Published var weather: WeatherResponse? = nil    
     var currentLocation: (latitude:Double, longitude:Double) = (41.3874, 2.1686)
 }
 

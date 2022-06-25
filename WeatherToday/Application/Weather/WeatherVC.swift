@@ -25,6 +25,7 @@ class WeatherVC: BaseVC<WeatherVM> {
     let collectionViewEdgeInset: UIEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)
     var sunRiseHour: Int = 7
     var sunSetHour: Int = 19
+    var subscribers: [AnyCancellable] = []
 
     // MARK: - Outlets
     
@@ -34,7 +35,7 @@ class WeatherVC: BaseVC<WeatherVM> {
                 .map{$0}
                 .receive(on: DispatchQueue.main)
                 .assign(to: \.text, on: cityNameLabel)
-                .store(in: &viewModel.cancellables)
+                .store(in: &subscribers)
         }
     }
     
@@ -44,7 +45,7 @@ class WeatherVC: BaseVC<WeatherVM> {
                 .map{$0}
                 .receive(on: DispatchQueue.main)
                 .assign(to: \.text, on: weatherTypeLabel)
-                .store(in: &viewModel.cancellables)
+                .store(in: &subscribers)
         }
     }
     
@@ -56,7 +57,7 @@ class WeatherVC: BaseVC<WeatherVM> {
                 .map{ Utilities.sharedInstance.convertFahrenheitToCelsius(fahrenheit:$0 ?? 0.0)}
                 .receive(on: DispatchQueue.main)
                 .assign(to: \.text, on: currentCityTempLabel)
-                .store(in: &viewModel.cancellables)
+                .store(in: &subscribers)
         }
     }
     
@@ -66,7 +67,7 @@ class WeatherVC: BaseVC<WeatherVM> {
                 .map{ Utilities.sharedInstance.getFormatedDate(date: Double(($0 ?? 0))) }
                 .receive(on: DispatchQueue.main)
                 .assign(to: \.text, on: currentDateLabel)
-                .store(in: &viewModel.cancellables)
+                .store(in: &subscribers)
         }
     }
     
@@ -81,7 +82,7 @@ class WeatherVC: BaseVC<WeatherVM> {
                .sink { [weak self] _ in
                    self?.tableView.reloadData()
                }
-               .store(in: &viewModel.cancellables)
+               .store(in: &subscribers)
         }
     }
     
@@ -96,7 +97,7 @@ class WeatherVC: BaseVC<WeatherVM> {
                .sink { [weak self] _ in
                    self?.collectionView.reloadData()
                }
-               .store(in: &viewModel.cancellables)
+               .store(in: &subscribers)
         }
     }
     
