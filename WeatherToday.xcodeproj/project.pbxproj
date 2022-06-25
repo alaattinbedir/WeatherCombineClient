@@ -20,7 +20,6 @@
 		84268CE42848C0D0003D52EE /* WeatherStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84268CE32848C0D0003D52EE /* WeatherStub.swift */; };
 		84383E5E284E85A00048AA21 /* WeatherVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84383E5D284E85A00048AA21 /* WeatherVC.xib */; };
 		84383E63284E8DD30048AA21 /* LandingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84383E62284E8DD30048AA21 /* LandingVC.swift */; };
-		843DBB4228676B5F00415956 /* MLBasicKit in Frameworks */ = {isa = PBXBuildFile; productRef = 843DBB4128676B5F00415956 /* MLBasicKit */; };
 		844C58112864BDAF0037C184 /* MLNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 844C58102864BDAF0037C184 /* MLNetworking */; };
 		847D7E6A2848D25400AD0DBC /* success_weather_response.json in Resources */ = {isa = PBXBuildFile; fileRef = 847D7E692848D25400AD0DBC /* success_weather_response.json */; };
 		847D7E6C2848D6F000AD0DBC /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A379EA2750DD820071CA81 /* Utilities.swift */; };
@@ -34,6 +33,7 @@
 		847D7E752848D79A00AD0DBC /* ForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A379E42750DD5D0071CA81 /* ForecastTableViewCell.swift */; };
 		847D7E772848D7D400AD0DBC /* SessionKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A379EB2750DD820071CA81 /* SessionKeeper.swift */; };
 		84902ED4286271D6002CD146 /* UiColor+AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84902ED3286271D6002CD146 /* UiColor+AppColors.swift */; };
+		8491BEFF2867A4EA0051E3DF /* MLBasicKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8491BEFE2867A4EA0051E3DF /* MLBasicKit */; };
 		84A379952750CE2A0071CA81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A379942750CE2A0071CA81 /* AppDelegate.swift */; };
 		84A379972750CE2A0071CA81 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A379962750CE2A0071CA81 /* SceneDelegate.swift */; };
 		84A3799E2750CE2C0071CA81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84A3799D2750CE2C0071CA81 /* Assets.xcassets */; };
@@ -136,7 +136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				844C58112864BDAF0037C184 /* MLNetworking in Frameworks */,
-				843DBB4228676B5F00415956 /* MLBasicKit in Frameworks */,
+				8491BEFF2867A4EA0051E3DF /* MLBasicKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,7 +477,7 @@
 			name = WeatherToday;
 			packageProductDependencies = (
 				844C58102864BDAF0037C184 /* MLNetworking */,
-				843DBB4128676B5F00415956 /* MLBasicKit */,
+				8491BEFE2867A4EA0051E3DF /* MLBasicKit */,
 			);
 			productName = WeatherToday;
 			productReference = 84A379912750CE2A0071CA81 /* WeatherToday.app */;
@@ -553,7 +553,7 @@
 			mainGroup = 84A379882750CE2A0071CA81;
 			packageReferences = (
 				844C580F2864BDAF0037C184 /* XCRemoteSwiftPackageReference "MLNetworking" */,
-				843DBB4028676B5F00415956 /* XCRemoteSwiftPackageReference "MLBasicKit" */,
+				8491BEFD2867A4EA0051E3DF /* XCRemoteSwiftPackageReference "MLBasicKit" */,
 			);
 			productRefGroup = 84A379922750CE2A0071CA81 /* Products */;
 			projectDirPath = "";
@@ -1012,14 +1012,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		843DBB4028676B5F00415956 /* XCRemoteSwiftPackageReference "MLBasicKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/alaattinbedir/MLBasicKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		844C580F2864BDAF0037C184 /* XCRemoteSwiftPackageReference "MLNetworking" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alaattinbedir/MLNetworking.git";
@@ -1028,18 +1020,26 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		8491BEFD2867A4EA0051E3DF /* XCRemoteSwiftPackageReference "MLBasicKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alaattinbedir/MLBasicKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		843DBB4128676B5F00415956 /* MLBasicKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 843DBB4028676B5F00415956 /* XCRemoteSwiftPackageReference "MLBasicKit" */;
-			productName = MLBasicKit;
-		};
 		844C58102864BDAF0037C184 /* MLNetworking */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 844C580F2864BDAF0037C184 /* XCRemoteSwiftPackageReference "MLNetworking" */;
 			productName = MLNetworking;
+		};
+		8491BEFE2867A4EA0051E3DF /* MLBasicKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8491BEFD2867A4EA0051E3DF /* XCRemoteSwiftPackageReference "MLBasicKit" */;
+			productName = MLBasicKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
