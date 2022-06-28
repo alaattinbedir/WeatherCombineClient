@@ -17,11 +17,9 @@ class WeatherApi {
                       succeed:@escaping (WeatherResponse) -> Void,
                       failed:@escaping (ErrorMessage) -> Void) {
 
-            // Set up current coordinate url
-            let urlCoordinate = "\(latitude),\(longitude)"
-
             BaseAPI.shared.request(methotType: .get,
-                                   endPoint: urlCoordinate,
+                                   baseURL: Keeper.shared.currentEnvironment.domainUrl,
+                                   endPoint: Endpoints.weather.replaceParamsWithCurlyBrackets(String(latitude), String(longitude)),
                                    params: nil) { (response: WeatherResponse) in
                 succeed(response)
             } failed: { (errorMessage: ErrorMessage) in

@@ -359,16 +359,8 @@
 			isa = PBXGroup;
 			children = (
 				84A379C92750CFED0071CA81 /* Response */,
-				84A379C82750CFE00071CA81 /* Request */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		84A379C82750CFE00071CA81 /* Request */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Request;
 			sourceTree = "<group>";
 		};
 		84A379C92750CFED0071CA81 /* Response */ = {
