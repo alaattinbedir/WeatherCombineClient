@@ -48,8 +48,4 @@ enum AppDomain: Codable, CaseIterable, RawRepresentable {
             return ip
         }
     }
-
-    var msisdnUrl: String {
-        return "\(domainUrl)/auth/msisdn".replacingOccurrences(of: "https", with: "http")
-    }
 }
