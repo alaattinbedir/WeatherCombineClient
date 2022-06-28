@@ -39,8 +39,6 @@ extension WeatherVM {
             self.weatherType = weather.currently?.summary
             self.currentCityTemp = weather.currently?.temperature
 
-            self.closeButtonPressed()
-
         }, failed: { (error) in
             print(error)
         })
