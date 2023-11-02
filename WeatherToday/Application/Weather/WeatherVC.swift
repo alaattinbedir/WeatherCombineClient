@@ -152,10 +152,10 @@ extension WeatherVC {
     }
         
     func setSunriseAndSunset() {
-        guard let day = viewModel.weather?.daily?.data![0] else { return }
+        guard let day = viewModel.weather?.daily?[0] else { return }
         
-        sunRiseHour = Int(Utilities.sharedInstance.getHourFromDate(date: Double(day.time!))) ?? sunRiseHour
-        sunSetHour = Int(Utilities.sharedInstance.getHourFromDate(date: Double(day.time!))) ?? sunSetHour
+        sunRiseHour = Int(Utilities.sharedInstance.getHourFromDate(date: Double(day.dt))) ?? sunRiseHour
+        sunSetHour = Int(Utilities.sharedInstance.getHourFromDate(date: Double(day.dt))) ?? sunSetHour
     }
 }
 
@@ -168,7 +168,7 @@ extension WeatherVC : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let forecastDaily = viewModel.weather?.daily?.data else { return 0 }
+        guard let forecastDaily = viewModel.weather?.daily else { return 0 }
         
         return forecastDaily.count
     }
@@ -176,7 +176,7 @@ extension WeatherVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: dailyCellIdentifier) as! DailyTableViewCell
         
-        guard let data = viewModel.weather?.daily?.data![indexPath.row] else { return cell }
+        guard let data = viewModel.weather?.daily?[indexPath.row] else { return cell }
         cell.configureCell(dailyData: data)
         
         return cell
@@ -187,7 +187,7 @@ extension WeatherVC : UITableViewDelegate, UITableViewDataSource {
 
 extension WeatherVC : UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let forecastHourly = viewModel.weather?.hourly?.data else { return 0 }
+        guard let forecastHourly = viewModel.weather?.hourly else { return 0 }
         
         return forecastHourly.count
     }
@@ -195,7 +195,7 @@ extension WeatherVC : UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: hourlyCellIdentifier, for: indexPath) as! HourlyCollectionViewCell
         
-        guard let data = viewModel.weather?.hourly?.data![indexPath.row] else { return cell }
+        guard let data = viewModel.weather?.hourly?[indexPath.row] else { return cell }
         cell.configureCell(hourlyData: data)
         
         return cell

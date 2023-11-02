@@ -35,9 +35,9 @@ extension WeatherVM {
             guard let self = self else { return }
 
             self.weather = weather
-            self.currentDate = weather.currently?.time
-            self.weatherType = weather.currently?.summary
-            self.currentCityTemp = weather.currently?.temperature
+            self.currentDate = weather.weather.currentDate
+            self.weatherType = weather.weather.weatherType
+            self.currentCityTemp = weather.weather.currentCityTemp
 
         }, failed: { (error) in
             print(error)
